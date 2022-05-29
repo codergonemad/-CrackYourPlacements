@@ -1,0 +1,24 @@
+//TIME LIMIT EXCEEDED
+class Solution {
+    public int maxArea(int[] height) {
+        int max=0;
+        int temp=0;
+        for(int i=0;i<height.length;i++)
+        {
+            for(int j=i;j<height.length;j++)
+            {
+                if(height[i]<=height[j])
+                {
+                    max=height[i]*(j-i);
+                    
+                }
+                else
+                    max=height[j]*(j-i);
+                if(max>temp)
+                    temp=max;
+            }
+            
+        }
+        return temp;
+    }
+}
