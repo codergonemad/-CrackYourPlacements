@@ -1,0 +1,17 @@
+//link=https://leetcode.com/problems/subarray-sum-equals-k/
+class Solution {
+    public int subarraySum(int[] nums, int k) {
+        int sum=0;
+        int count=0;
+       HashMap<Integer,Integer> sums=new HashMap<>();
+        for(int i=0;i<nums.length;i++)
+        {
+            sum+=nums[i];
+            if(sum==k)
+                count++;
+            if(sums.containsKey(sum-k)) count += sums.getOrDefault((sum-k), 1);
+            sums.put(sum, sums.getOrDefault(sum,0)+1);
+        }
+        return count;
+        }
+    }
