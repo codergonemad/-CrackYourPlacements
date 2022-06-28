@@ -1,0 +1,28 @@
+//https://leetcode.com/problems/3sum/
+//Tatti Code
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> temp=new ArrayList<>();
+        Set<Integer> seen =new HashSet<Integer>();
+        for(int i=0;i<nums.length;i++)
+        {
+            for(int j=i+1;j<nums.length;j++)
+            {
+                for(int k=j+1;k<nums.length;k++)
+                {
+                    if((nums[i]+nums[j]+nums[k])==0 )
+                    {
+                        seen.add(nums[i]);
+                        seen.add(nums[j]);
+                        seen.add(nums[k]);
+                    
+                            if(!seen.contains(nums[i]) || !seen.contains(nums[j])|| !seen.contains(nums[k]))
+                                temp.add(Arrays.asList(nums[i],nums[j],nums[k]));
+                        }
+                        
+                
+            }}}
+        return temp;
+        
+    }
+}
