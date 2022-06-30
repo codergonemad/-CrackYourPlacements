@@ -1,3 +1,24 @@
+//https://leetcode.com/problems/two-sum/
+//USING HASHMAP
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int arr[]=new int[2];
+        HashMap<Integer,Integer> map=new HashMap<>();
+        int diff=0;
+        for(int i=0;i<nums.length;i++)
+        {
+            diff=target-nums[i];
+            if(map.containsKey(diff))
+            {
+                arr[0]=map.get(diff);
+                arr[1]=i;
+                return arr;
+            }
+            map.put(nums[i],i);
+        }
+        return null;
+        
+    }
 //TRY TO OPTIMIZE the code
 class Solution {
     public int[] twoSum(int[] nums, int target) {
