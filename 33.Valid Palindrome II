@@ -1,0 +1,32 @@
+//https://leetcode.com/problems/valid-palindrome-ii/
+//using hashmap look into the code
+class Solution {
+    public boolean validPalindrome(String s) {
+        Map<String,Integer> seen=new HashMap<>();
+        if(s.length()!=0)
+        {
+        for(int i=0;i<s.length();i++)
+        {
+            if(seen.containsKey(s.charAt(i)))
+            {
+                seen.put(s.charAt(i)+"",seen.get(s.charAt(i))+1);
+            }
+            else
+                seen.put(s.charAt(i)+"",1);
+        }
+        int temp=0;
+        for(String i:seen.keySet())
+        {
+            System.out.println(i+seen.get(i));
+            if(seen.get(i)%2==1)
+                temp++;
+            
+        }
+            if(temp==3)
+                return false;
+        
+        }
+       
+            return true;
+    }
+}
