@@ -1,0 +1,21 @@
+//https://leetcode.com/problems/longest-common-prefix/
+//wrong but important look at sorting
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        Arrays.sort(strs, Comparator.comparingInt(String::length));
+        String first=strs[0];
+        String last=strs[strs.length-1];
+        int temp=0;
+        for(int i=0;i<first.length();i++)
+        {
+            if(first.charAt(i)==last.charAt(i))
+                temp++;
+            else 
+                break;
+        }
+        String curr=first.substring(0,temp);
+        
+            
+        return curr;
+}
+}
