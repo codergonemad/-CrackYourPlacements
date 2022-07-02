@@ -1,0 +1,63 @@
+//https://leetcode.com/problems/add-binary/
+
+//WRONG AND SHITTY SOLUTION AND WRONG
+class Solution {
+    public String addBinary(String a, String b) {
+        int temp=Integer.parseInt(a);
+        int temp1=Integer.parseInt(b);
+        int curr=0;
+        int carry=0;
+        String str="";
+        if(a.length()>b.length())
+        {
+          curr=a.length();   
+        }
+        else
+            curr=b.length();
+        for(int i=0;i<curr;i++)
+        {
+            if(temp%10==1 && temp1%10==1)
+            {
+                carry=1;
+                temp=temp/10;
+                temp1=temp1/10;
+                str+="0";
+            }
+            else
+            {
+                if((temp%10==1 && temp1%10==0) && (temp%10==0 && temp1%10==1))
+                {
+                    if(carry==1)
+                    {
+                    carry=1;
+                    temp=temp/10;
+                    temp1=temp1/10;
+                    str+="0";
+                    }
+                    else
+                    {
+                        carry=0;
+                        temp=temp/10;
+                        temp1=temp1/10;
+                        str+="1";
+                        
+                    }
+                }
+                else
+                {
+                    carry=0;
+                    temp=temp/10;
+                    temp1=temp1/10;
+                    str+="1";
+                }
+                    
+                
+        }
+            
+        
+    }
+        StringBuilder sb=new StringBuilder(str);
+            str=""+sb.reverse();
+            return str;
+}
+}
