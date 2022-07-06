@@ -1,0 +1,21 @@
+//https://leetcode.com/problems/intersection-of-two-linked-lists/
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        HashSet<ListNode> seen=new HashSet<>();
+        ListNode curr=headA;
+        while(curr!=null)
+        {
+            seen.add(curr);
+            curr=curr.next;
+        }
+        curr=headB;
+        while(curr!=null)
+        {
+            if(seen.contains(curr))
+                return curr;
+            curr=curr.next;
+        }
+        return null;
+        
+    }
+}
