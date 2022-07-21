@@ -8,7 +8,6 @@ class Solution {
                 temp=nums[i];
             seen.add(nums[i]);
         }
-        
         return temp;
     }
 }
