@@ -1,0 +1,31 @@
+//https://leetcode.com/problems/best-poker-hand/
+class Solution {
+    public String bestHand(int[] ranks, char[] suits) {
+          HashMap<Character,Integer> map=new HashMap<>();
+        HashMap<Integer,Integer> map2=new HashMap<>();
+        int temp=0;
+        int count=0;
+        for(int i=0;i<ranks.length;i++)
+        {
+            if(map.containsKey(suits[i]))
+            {
+                int curr=map.get(suits[i]);
+                temp=Math.max(temp,curr);
+            }
+            if(map2.containsKey(ranks[i]))
+            {
+                int curr=map2.get(ranks[i]);
+                count=Math.max(curr,count);
+            }
+            map.put(suits[i],map.getOrDefault(suits[i],0)+1);
+            map2.put(ranks[i],map2.getOrDefault(ranks[i],0)+1);
+        }
+        if(temp==ranks.length-1)
+            return "Flush";
+        if(count>=2)
+            return "Three of a Kind";
+        if(count==1)
+            return "Pair";
+        return "High Card";
+    }
+}
