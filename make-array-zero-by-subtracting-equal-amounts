@@ -1,0 +1,33 @@
+//https://leetcode.com/problems/make-array-zero-by-subtracting-equal-amounts/
+class Solution {
+    public int minimumOperations(int[] nums) {
+        if(nums.length==0)
+            return 0;
+        if(nums.length==1 && nums[0]!=0)
+            return 1;
+        Arrays.sort(nums);
+        int ans=0;
+        int len=0;
+        while(len<nums.length)
+        {
+            int min=nums[len];
+            int curr=0;
+            for(int i=len;i<nums.length;i++)
+            {
+                if(nums[i]==0)
+                {
+                    len++;
+                    break;
+                }
+                else
+                {
+                   nums[i]=nums[i]-min;
+                   curr++;
+                   ans+=curr/(nums.length-len);
+                }
+            }
+        }
+        
+        return ans;
+    }
+}
